@@ -42,7 +42,7 @@ vows
 					cli.process( ['init'], this.callback );
 				},
 				'then it should err': function( e, resp ) {
-					expects = [ 'Looks like you already have a Bunchfile file.' ];
+					expects = [ 'Looks like you already have a Bunchfile.' ];
 					assert.equal( stdout.join('/n'), expects.join('/n') );
 				},
 				'and render our test files': function( ) {
@@ -88,23 +88,6 @@ vows
 				var expects = [ 'Wrote file js/bin/example_base.js', 'Wrote file css/bin/example_base.css' ];
 				assert.include( stdout, expects[0] );
 				assert.include( stdout, expects[1] );
-			}
-		}
-	} )
-	.addBatch( {
-		'monitor': {
-			'topic': function() {
-				stdout = [];
-				cli.process( ['monitor'] );
-				return stdout;
-			},
-			'should have a nice banner': function( stdout ) {
-				var expects = [ '.-.                     .-.       _       \n: :                     : :      :_;      \n: -. .-..-.,-.,-. .--. : -.    .-. .--. \n\' .; :: :; :: ,. :\'  ..\': .. : _ : :._-.\'\n.__.\'.__.\':_;:_;.__.\':_;:_;:_;: :.__.\'\n                               .-. :      \n                               `._.\'',
-					'',
-					'== Bunch Monitor started', 
-					'>> Checking for file changes every 1 second(s)', 
-					'>> CTRL+C to stop' ];
-				assert.equal( stdout.join('\n'), expects.join('\n') );
 			}
 		}
 	} )

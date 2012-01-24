@@ -142,7 +142,7 @@ vows
 					assert.equal( resp, expects.toString() );
 					assert.include( output, 'Failed to build bundle: ');
 					assert.include( output, 'tmp/test_files/css/bin/example_base.css' );
-					assert.include( output, 'ParseError' );
+					assert.include( output, 'Syntax Error on line 3' );
 				}, 
 				'without compression': {
 					'topic': function( e, resp ) {
@@ -155,7 +155,7 @@ vows
 						assert.include( resp, expects[0] );
 						assert.include( output, 'Failed to build bundle: ');
 						assert.include( output, 'tmp/test_files/css/bin/example_base.css' );
-						assert.include( output, 'ParseError' );
+						assert.include( output, 'Syntax Error on line 3' );
 					}
 				}
 			}
