@@ -1,0 +1,16 @@
+{
+	"jsDir": "js",
+	"cssDir": "css",
+	"sourceDir": "src",
+	"buildDir": "bin",
+	"bundles": {
+		"example_base.js": [
+			"vendor/jquery.js",
+			"app.js"
+		],
+		"example_base.css": [
+			"reset.css",
+			"app.css"
+		]
+	}
+}

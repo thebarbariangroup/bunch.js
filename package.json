@@ -1,0 +1,28 @@
+{
+	"author": "Adam Miller <adam@barbariangroup.com> (http://www.barbariangroup.com)",
+	"name": "bunch",
+	"description": "A stand-alone, manifest-driven JS/CSS bundler.",
+	"version": "0.4.0",
+	"homepage": "https://github.com/thebarbariangroup/bunch.js",
+	"repository": {
+		"type": "git",
+		"url": "git@metalslug.barbariangroup.com:adam/bunch.js.git"
+	},
+	"main": "./lib/bunch.js",
+	"engines": {
+		"node": ">=0.4.6"
+	},
+	"dependencies": {
+		"yui-compressor": "0.1.3",
+		"less": "1.2.0"
+	},
+	"devDependencies": {
+		"vows": "0.5.x",
+		"wrench": "1.3.x",
+		"underscore": "1.2.x"
+	},
+	"bin" : { "bunch" : "./bin/bunch-cli.js" },
+	"scripts": {
+		"test": "vows test/test_bunch_* -i"
+	}
+}
