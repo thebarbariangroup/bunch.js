@@ -59,9 +59,9 @@ As stated above, bunch.js is manifest driven. All your instructions to bunch.js 
 		}
 	}
 	
-# Upgrading an existing project from pickle.js
+# Upgrading an existing project using a Pickler file
 
-Bunch used to be called pickle.js. If you're upgrading from pickle.js, simply rename Pickler to Bunchfile and you should be good to go. 
+Bunch used to be called pickle.js. If you're upgrading from pickle.js, simply rename your Pickler file to Bunchfile and you should be good to go. 
 
 
 # Running the tests
