@@ -2,7 +2,7 @@
 	"author": "Adam Miller <adam@barbariangroup.com> (http://www.barbariangroup.com)",
 	"name": "bunch",
 	"description": "A stand-alone, manifest-driven JS/CSS bundler.",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"homepage": "https://github.com/thebarbariangroup/bunch.js",
 	"repository": {
 		"type": "git",

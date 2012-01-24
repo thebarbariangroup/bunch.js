@@ -159,7 +159,27 @@ vows
 					}
 				}
 			}
-
+		}
+	} )
+	.addBatch( {
+		'file types': {
+			'less': {
+				'topic': function() {
+					testConfig['bundles']["example_base.css"] = ["reset.css","app.less"];
+					packer.loadConfig( testConfig );
+					helper.resetBuildSync( packer );
+					output = [];
+					// rename our file to match the new config
+					// fs.renameSync( 'tmp/test_files/css/src/app.css', 'tmp/test_files/css/src/app.less' );
+					// then pack with compression to test Less and YUI
+					packer.pack( { compress: true }, this.callback );
+				},
+				'should bundle everything without problem': function( e, resp ) {
+					var expects = ['tmp/test_files/css/bin/example_base.css', 'tmp/test_files/js/bin/example_base.js'];
+					assert.include( resp, expects[0] );
+					assert.include( resp, expects[1] );
+				}
+			}
 		}
 	} )
 	.addBatch( {

@@ -102,7 +102,7 @@ exports.TestHelper = function() {
 					wrench.mkdirSyncRecursive( path.dirname( fileName ), '0755' );
 					fs.writeFileSync( fileName, fileContents );
 					cleanupList.push( fileName );
-				} else if ( fileName.match( /\.css$/ ) ) {
+				} else if ( fileName.match( /\.(css|less)$/ ) ) {
 					// write out the JS file with 
 					fileContents = ".test-" + i + " { width: " + i + "px; }\n.test-" + i + ":after { content: \"" + fileName + "\"; }";
 					wrench.mkdirSyncRecursive( path.dirname( fileName ), '0755' );
