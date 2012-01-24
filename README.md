@@ -1,6 +1,6 @@
 # bunch.js
 
-Bunch.js is a manifest-driven CSS and Javascript packaging utility. Here's what makes Bunch.js awesome:
+Bunch.js is a manifest-driven CSS and Javascript packaging utility. Here's what makes bunch.js awesome:
 
 - He's a stand-alone program. No server-side code or framework required. 
 - He packages AND minifies your JS and CSS files for you. 

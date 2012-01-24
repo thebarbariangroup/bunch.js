@@ -6,7 +6,7 @@
 	"homepage": "https://github.com/thebarbariangroup/bunch.js",
 	"repository": {
 		"type": "git",
-		"url": "git@metalslug.barbariangroup.com:adam/bunch.js.git"
+		"url": "git@github.com:thebarbariangroup/bunch.js.git"
 	},
 	"main": "./lib/bunch.js",
 	"engines": {
