@@ -59,7 +59,11 @@ As stated above, bunch.js is manifest driven. All your instructions to bunch.js 
 		}
 	}
 	
-	
+# Upgrading an existing project from pickle.js
+
+Bunch used to be called pickle.js. If you're upgrading from pickle.js, simply rename Pickler to Bunchfile and you should be good to go. 
+
+
 # Running the tests
 
 Bunch.js is tested with [Vows](http://vowsjs.org/), and each path expects to be run in it's own process. This much change in the future, but for now it means passing the isolate parameter to vows when running the test suite. 
