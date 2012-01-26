@@ -73,7 +73,7 @@ Using the above Bunchfile as our example, here is how you would access the varia
 	
 We handle variables a bit differently for javascript. They're simply rendered as a global object at the at the top of each of your JS bundles. Here's how you would access them in your JS files: 
 
-	$.getJSON( Bunch.variabls["baseURL"] + "api/data.json", function( data ) {} );
+	$.getJSON( Bunch.variables["baseURL"] + "api/data.json", function( data ) {} );
 	
 	for( var i = 0; i < Bunch.variables["bunches"].length; i++ ) {
 		console.log( Bunch.variables["bunches"][i] );
