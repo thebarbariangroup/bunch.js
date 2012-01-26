@@ -31,9 +31,9 @@ To pack your bundles, run:
 
 To pack your bundles and compress them, include the compress (x) flag when running pack:
 
-		bunch pack --compress
-		bunch pack -x 
-		
+	bunch pack --compress
+	bunch pack -x
+
 To start monitoring the source files for changes, run:
 
 	bunch monitor
