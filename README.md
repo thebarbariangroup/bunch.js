@@ -2,12 +2,12 @@
 
 Bunch.js is a manifest-driven CSS and Javascript packaging utility. Here's what makes bunch.js awesome:
 
-- He's a stand-alone program. No server-side code or framework required. 
-- He packages AND minifies your JS and CSS files for you. 
-- He's manifest driven. With one configuration file, he makes it easy to see what JS and CSS files are in use on your site, and what needs retired.
-- He runs all your CSS through [Less](http://lesscss.org/) for you.
-- He lets you provide global variables to your CSS and JS.
-- He's got a monitor mode that will automatically rebuild your bundles when they change. 
+- It's a stand-alone program. No server-side code or framework required. 
+- It packages AND minifies your JS and CSS files for you. 
+- It's manifest driven. With one configuration file, he makes it easy to see what JS and CSS files are in use on your site, and what needs retired.
+- It runs all your CSS through [LESS](http://lesscss.org/) for you.
+- It lets you provide global variables to your CSS and JS.
+- It's got a monitor mode that will automatically rebuild your bundles when they change. 
 
 ## Installation
 
