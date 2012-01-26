@@ -52,13 +52,34 @@ As stated above, bunch.js is manifest driven. All your instructions to bunch.js 
 				"app.css"
 			]
 		},
-		"variables": { // You can specify variables here. Objects are not supported in CSS, and will simply be ignored.
+		"variables": { // You can specify variables here.
 			"baseURL": "/staging/bunchShop/",
 			"mainColor": "#385903",
 			"bunches": ["Bananas", "Flowers", "Grapes", "Carrots", "Bradys"]
 		}
 	}
 	
+	
+# Variables 
+
+Occasionally you may want to define a variable at compile time for your CSS/JS. This is especially handy when dealing with URLs to external resource that may change between your staging and production environments. When you define variables in your Bunchfile, you can use strings, numbers, arrays or objects, however objects are not supported for CSS and will simply be left out of your CSS files. 
+
+Using the above Bunchfile as our example, here is how you would access the variables in your CSS files: 
+
+	#example {
+		background-image: url( "@{baseURL}images/common/bg.gif" );
+		color: @mainColor;
+	}
+	
+We handle variables a bit differently for javascript. They're simply rendered as a global object at the at the top of each of your JS bundles. Here's how you would access them in your JS files: 
+
+	$.getJSON( Bunch.variabls["baseURL"] + "api/data.json", function( data ) {} );
+	
+	for( var i = 0; i < Bunch.variables["bunches"].length; i++ ) {
+		console.log( Bunch.variables["bunches"][i] );
+	}
+	
+
 # Upgrading an existing project using a Pickler file
 
 Bunch used to be called pickle.js. If you're upgrading from pickle.js, simply rename your Pickler file to Bunchfile and you should be good to go. 
