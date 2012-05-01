@@ -96,13 +96,37 @@ vows
 					assert.isTrue( stat2.mtime > lastModifiedAt );
 					assert.isTrue( stat2.mtime > stat1.mtime );
 				}
+			},
+			'and an error is introduced to CSS': {
+				topic: function() {
+					var promise = new events.EventEmitter(),
+						lastModifiedAt = fs.lstatSync( 'css/bin/example_base.css' ).mtime;
+					monitor.on( 'afterRegenerate', function( res ) {
+						promise.emit( 'success', lastModifiedAt );
+					} );
+					setTimeout( function() {
+						fs.open( 'css/src/app.css', 'a', 666, function( e, id ) {
+							fs.write( id, '\n .append-test {\n\tcolor: @undefinedVar;\n}', null, 'utf8', function(){
+								fs.close( id );
+							} );
+						} );
+					}, 2000 );
+					return promise;
+				},
+				'it should log an error to the built file': function( lastModifiedAt ) {
+					var stat1 = fs.lstatSync( 'css/bin/example_base.css' ),
+						output = fs.readFileSync( 'css/bin/example_base.css', 'utf-8');
+						console.log( "output", output );
+					assert.isTrue( stat1.mtime > lastModifiedAt );
+					
+				}
 			}
 		}
 	} )
 	.addBatch( {
 		'cleanup' : function() {
 			process.chdir( initDir );
-			wrench.rmdirSyncRecursive( testDir );
+			// wrench.rmdirSyncRecursive( testDir );
 		}
 	} )
 	.export( module );
