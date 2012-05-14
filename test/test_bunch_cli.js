@@ -63,7 +63,7 @@ vows
 				return stdout;
 			},
 			'Should equal what is in Bunch.Version': function( stdout ) {
-				assert.equal( stdout.join('/n'), 'bunch 0.5.2' );
+				assert.equal( stdout.join('/n'), 'bunch 0.6.0' );
 			}
 		},
 		'help': {

@@ -116,9 +116,8 @@ vows
 				'it should log an error to the built file': function( lastModifiedAt ) {
 					var stat1 = fs.lstatSync( 'css/bin/example_base.css' ),
 						output = fs.readFileSync( 'css/bin/example_base.css', 'utf-8');
-						console.log( "output", output );
+					console.log( "output", output );
 					assert.isTrue( stat1.mtime > lastModifiedAt );
-					
 				}
 			}
 		}
@@ -126,7 +125,7 @@ vows
 	.addBatch( {
 		'cleanup' : function() {
 			process.chdir( initDir );
-			// wrench.rmdirSyncRecursive( testDir );
+			wrench.rmdirSyncRecursive( testDir );
 		}
 	} )
 	.export( module );

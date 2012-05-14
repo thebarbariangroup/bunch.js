@@ -87,7 +87,7 @@ vows
 			},
 			'builds the files': function( e, resp ) {
 				// check that the built files exist
-				assert.doesNotThrow(function () {
+				assert.doesNotThrow( function () {
 					fs.lstatSync( 'tmp/test_files/js/bin/example_base.js' );
 					fs.lstatSync( 'tmp/test_files/css/bin/example_base.css' );
 				}, Error);
@@ -98,7 +98,27 @@ vows
 				assert.include( resp, expects[1] );
 			},
 			'the files should not be compressed': function( e, resp ) {
-				
+				// maybe test that line breaks are maintained?
+			}
+		}
+	} )
+	.addBatch( {
+		'general error handling': {
+			'topic': function() {
+				helper.resetBuildSync( packer );
+				output = [];
+				// delete a js
+				fs.unlinkSync( 'tmp/test_files/js/src/app.js' );
+				// and a css source file
+				fs.unlinkSync( 'tmp/test_files/css/src/app.css' );
+				// then pack with compression
+				packer.pack( { compress: true }, this.callback );
+			},
+			'should notify of the missing source files': function( e, resp ) {
+				var missingFiles = ['tmp/test_files/css/src/app.css', 'tmp/test_files/js/src/app.js'];
+				// there should be some error messaging indicating our missed files
+				assert.include( output.join( '\n' ), 'FileNotFound: Could not find file ' + missingFiles[0] );
+				assert.include( output.join( '\n' ), 'FileNotFound: Could not find file ' + missingFiles[1] );
 			}
 		}
 	} )
